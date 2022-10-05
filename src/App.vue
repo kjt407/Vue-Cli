@@ -1,6 +1,12 @@
 <template>
   <v-app>
-    <User></User>
+    <v-container>
+      <v-layout row wrap>
+        <v-flex xs12>
+          <User></User>
+        </v-flex>
+      </v-layout>
+    </v-container>
   </v-app>
 </template>
 
