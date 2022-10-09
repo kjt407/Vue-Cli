@@ -21,14 +21,32 @@
           {{ gender }}
         </v-list-tile-content>
       </v-list-tile><br/>
+      <v-list-tile>
+        <v-list-tile-content>수정일자:</v-list-tile-content>
+        <v-list-tile-content class="align-end">
+          {{ editedDate }}
+        </v-list-tile-content>
+      </v-list-tile><br/>
     </v-list>
   </div>
 </template>
 
 <script>
+import { eventBus } from '@/main.js'
+
 export default {
   props: ['name', 'age', 'gender'],
+  data() {
+    return {
+      editedDate: null
+    }
+  },
   computed: {
+  },
+  created() {
+    eventBus.$on('userEdited', (date) => {
+      this.editedDate = date
+    })
   }
 }
 </script>
