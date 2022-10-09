@@ -6,7 +6,13 @@ import vuetify from "./plugins/vuetify";
 
 Vue.config.productionTip = false;
 
-export const eventBus = new Vue();
+export const eventBus = new Vue({
+  methods: {
+    userEdited(date) {
+      this.$emit('userEdited', date)
+    }
+  }
+});
 
 new Vue({
   router,
